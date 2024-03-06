@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+    {% block content %}
+
+        <h1>Bid Details</h1>
+        <div class="row">
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="{{ bid.image.url }}" alt="Image for {{ bid.name }}">
+                        <!-- Above needs to be connected to an AWS server to send, store and retrieve S3 buckets -->
+                        <span class="card-title">{{ bid.name }}</span>
+                        <p>Price: {{ bid.price }}</p>
+                        <p>Description: {{ bid.description|linebreaks }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'cats_update' cat.id %}">Edit</a>
+                        <a href="{% url 'cats_delete' cat.id %}">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- This is all new markup to be added just above the <script> tag -->
+        <!-- <script></script> -->
+        <hr/>
+    {% endblock %}
